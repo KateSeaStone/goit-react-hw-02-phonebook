@@ -29,7 +29,6 @@ class ContactForm extends Component {
     })
   }
 
-
   render() {
     return (
       <form className="contactForm" onSubmit={this.handleSubmit}>

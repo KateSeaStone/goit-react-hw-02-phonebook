@@ -20,9 +20,9 @@ class App extends Component {
     const contact = {
       id: uuidv4(),
       name,
-      number
+      number,
     }
-    console.log(contact);
+    //console.log(contact);
 
     const normalizedName = this.state.contacts.map(contact => contact.name.toLowerCase())
 
