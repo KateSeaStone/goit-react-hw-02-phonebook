@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types';
 import './Filter.scss';
-// import './Filter.scss';
 
 const Filter = ({ value, onChange }) => (
   <label className="label__name">
     Find contact by name
     <input
-    className="input__form"
+      className="input__form"
       type="text"
       name="filter"
       value={value}

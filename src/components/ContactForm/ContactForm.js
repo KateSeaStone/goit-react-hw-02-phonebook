@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { v4 as uuidv4 } from 'uuid';
 import './ContactForm.scss';
+
 
 class ContactForm extends Component {
   state = {
@@ -35,7 +34,7 @@ class ContactForm extends Component {
         <label className="label__name">
           Name
           <input
-          className="input__form"
+            className="input__form"
             type="text"
             name="name"
             value={this.state.name}
@@ -49,7 +48,7 @@ class ContactForm extends Component {
         <label className="label__name">
           Number
           <input
-          className="input__form"
+            className="input__form"
             type="tel"
             name="number"
             value={this.state.number}
@@ -68,11 +67,6 @@ class ContactForm extends Component {
   }
 }
 
-
-ContactForm.propTypes = {
-  name: PropTypes.string.isRequired,
-  number: PropTypes.number.isRequired,
-};
 
 export default ContactForm;
 

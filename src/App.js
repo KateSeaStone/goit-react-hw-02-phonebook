@@ -4,15 +4,11 @@ import ContactList from './components/ContactList';
 import ContactForm from './components/ContactForm';
 import Filter from './components/Filter';
 import { v4 as uuidv4 } from 'uuid';
+import contacts from './contacts.json';
 
 class App extends Component {
   state = {
-    contacts: [
-      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-    ],
+    contacts: contacts,
     filter: '',
   }
 
@@ -41,6 +37,11 @@ class App extends Component {
     }))
   }
 
+  // onDelete = contactId => {
+  //   this.setState({contacts: this.state.contacts.filter(contact => contact.id !== contactId),
+  //   })
+  // }
+
   changeFilter = (event) => {
     this.setState({ filter: event.currentTarget.value })
   }
@@ -48,11 +49,11 @@ class App extends Component {
   getFiltredContacts = () => {
     const { filter, contacts } = this.state;
     const normalizedFilter = filter.toLowerCase();
-    return contacts.filter(contact => contact.name.includes(normalizedFilter))
+    return contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter))
   }
 
   render() {
-    const { filter, contacts } = this.state;
+    const { filter } = this.state;
     const filtredContacts = this.getFiltredContacts();
 
     return (
@@ -64,7 +65,7 @@ class App extends Component {
         <h2 className="contacts__title">Contacts</h2>
 
         <Filter value={filter} onChange={this.changeFilter} />
-        <ContactList contacts={filtredContacts} onChange={this.onDelete} />
+        <ContactList contacts={filtredContacts} onDelete={this.onDelete} />
 
       </div>
     )
